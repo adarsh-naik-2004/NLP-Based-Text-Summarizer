@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Analysis Results</title>
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{url_for('static',filename='index2.css')}}">
+</head> 
+
+<body style="background-color:rgb(244, 241, 241)">
+    <header style="background-color: #b21e1e;"
+        class="fixed inset-0 w-full flex flex-col justify-center justify-items-center content-center h-20 rounded-b-lg">
+        <img src="https://bs-uploads.toptal.io/blackfish-uploads/components/blog_post_page/content/cover_image_file/cover_image/1312209/regular_1708x683_cover-0323-MachineLearning_Dan_Newsletter-b21703f41d807514083e297955e1b46d.png" alt="Logo"
+        class="object-contain w-16 self-center md:self-left md:w-30">
+        <div class="self-center text-white"><b>Data Analysis Results</b></div>
+    </header>
+
+    <section class="flex flex-wrap mt-20 w-full">
+        <div class="w-full">
+            <h2>Summary:</h2>
+            <textarea style="background-color:#95C11E;"
+                class="w-11/12 border-green-600 rounded-lg p-2 border self-center justify-center md:h-3/4" rows="10"
+                cols="30" name="topPositiveComments" readonly placeholder="Top Positive Comments" id="topPositiveComments">
+                {{summary}}
+            </textarea>
+        </div>
+        <div class="w-full">
+            <h2>Adjectives:</h2>
+            <textarea style="background-color: #95C11E;"
+                class="w-11/12 border-green-600 rounded-lg p-2 border self-center justify-center md:h-3/4 mt-4" rows="10"
+                cols="30" name="topNegativeComments" readonly placeholder="Top Negative Comments" id="topNegativeComments">
+                {{adjectives}}
+            </textarea>
+        </div>
+        <div class="w-full">
+            <h2>Verbs:</h2>
+            <textarea style="background-color: #95C11E;"
+                class="w-11/12 border-green-600 rounded-lg p-2 border self-center justify-center md:h-3/4 mt-4" rows="10"
+                cols="30" name="posTagging" readonly placeholder="POS Tagging" id="posTagging">
+                {{verbs}}
+            </textarea>
+        </div>
+        <div class="w-full">
+            <h2>Word Frequency:</h2>
+            <textarea style="background-color: #95C11E;"
+                class="w-11/12 border-green-600 rounded-lg p-2 border self-center justify-center md:h-3/4 mt-4" rows="10"
+                cols="30" name="wordFrequencyCounter" readonly placeholder="Word Frequency Counter" id="wordFrequencyCounter">
+               {{word_freq}}
+            </textarea>
+        </div>
+        <div class="w-full">
+            <h2>Top Positive Reviews:</h2>
+            <textarea style="background-color: #95C11E;"
+                class="w-11/12 border-green-600 rounded-lg p-2 border self-center justify-center md:h-3/4 mt-4" rows="10"
+                cols="30" name="wordFrequencyCounter" readonly placeholder="Word Frequency Counter" id="wordFrequencyCounter">
+               {{top_positive_sentences}}
+            </textarea>
+        </div>
+        <div class="w-full">
+            <h2>Top Negative Reviews:</h2>
+            <textarea style="background-color: #95C11E;"
+                class="w-11/12 border-green-600 rounded-lg p-2 border self-center justify-center md:h-3/4 mt-4" rows="10"
+                cols="30" name="wordFrequencyCounter" readonly placeholder="Word Frequency Counter" id="wordFrequencyCounter">
+               {{top_negative_sentences}}
+            </textarea>
+        </div>
+        <div id="footer">
+            <div id="footer">
+
+                <div id="f1">
+                  <img
+                    src="https://cdn.pixabay.com/photo/2022/01/30/13/33/github-6980894_1280.png"
+                    alt=""
+                  />
+                </div>
+                <div id="f2">
+                  <h3>Adarsh Manjunath Naik</h3>
+                  <h3>Aryan Singh </h3>
+                  <h3>Krishna Agrawal</h3>
+                </div>
+                <div id="f3">
+                  <h3><a href="https://www.linkedin.com/in/adarsh-manjunath-naik-a2004m/">Linkedin</a></h3>
+                  <h3><a href="https://github.com/adarsh-naik-2004">GitHub</a></h3>
+                  <h3><a href="https://www.codechef.com/users/adarsh_naik">CodeChef</a></h3>
+                </div>
+                <div id="f4">
+                  <h4>
+                    Bhabha House <br />
+                    IIIT NAYA RAIPUR <br />
+                    RAIPUR <br />
+                    493661 <br />
+                    MOB.: 7477007852 <br />
+                  </h4>
+                </div>
+              </div>
+            </div>
+    </section>
+</body>
+</html>

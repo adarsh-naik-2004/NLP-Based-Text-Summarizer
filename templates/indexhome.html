@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='styleshome.css')}}">
+</head>
+<body>
+    
+    <video autoplay loop muted plays-inline>
+      <source src="{{url_for('static',filename='nlp_final.mp4')}}" type="video/mp4">
+    </video>
+    
+    <div id="main">
+        <div id="page1">
+            <h1>NLP Based Text Summarization</h1>
+        </div>
+        <div id="page2">
+            <div id="scroller">
+                <div id="scroller-1">
+                    <h4>MACHINE LEARNING</h4>
+                    <h4>NLP</h4>
+                    <h4>SUMMARIZATION</h4>
+                    <h4>ANALYSIS</h4>                   
+                </div>
+                <div id="scroller-1">
+                  <h4>MACHINE LEARNING</h4>
+                  <h4>NLP</h4>
+                  <h4>SUMMARIZATION</h4>
+                  <h4>ANALYSIS</h4>  
+                </div>
+            </div>
+            <div id="pricing">
+                
+                <div id="dd">
+                    <h3><b>ABOUT</b></h3>
+                    <p>
+                        <i>Our project offers an automatic text summarization solution that condenses lengthy documents into concise summaries using extractive techniques. It aims to enhance information consumption efficiency by extracting key insights from text data. Specifically, our tool is adept at aggregating and summarizing customer reviews, enabling businesses to swiftly comprehend sentiments, recognize common themes, and make data-driven decisions. Built for simplicity and efficiency, our algorithm prioritizes usability and computational speed, making it an ideal choice for processing large volumes of text. Future developments will focus on refining accuracy, expanding language support, and accommodating diverse document formats.</i></p>
+                </div>
+                <img src="https://cdn.activestate.com/wp-content/uploads/2021/12/python-text-summarization.jpg">
+            </div>
+            <div id="pricepanel">
+               <div class="card" id="card1">
+                  <div class="overwrite">
+                    <h4> <b><a href="index1.html">Normal Text Summary</a></b> </h4>
+                    <h4>Ideal for long text summarization</h4>
+                  </div>
+               </div>
+               <div class="card" id="card3">
+                  <div class="overwrite">
+                    <h4> <b><a href="index2.html">Use Case</a></b></h4>
+                    <h4>Ideal for analysing and summarizing customer reviews</h4>
+                  </div>
+               </div> 
+            </div>
+        </div>
+        <div id="page3">
+            <p>Thank you for being a part of our Stark Industry family. With your support, we've been able to bring the magic of Iron Man to life. Each suit we create is a labor of love, fueled by the shared passion for superheroes and the desire to inspire heroism in all of us. 
+            </p>
+            <img id="upper" src="https://eiwgew27fhz.exactdn.com/wp-content/themes/puttosaurus/img/quote-left.svg">
+            <img id="down" src="https://eiwgew27fhz.exactdn.com/wp-content/themes/puttosaurus/img/quote-right.svg">
+        </div>
+        <div id="footer">
+            <div id="footer">
+
+                <div id="f1">
+                  <img
+                    src="https://cdn.pixabay.com/photo/2022/01/30/13/33/github-6980894_1280.png"
+                    alt=""
+                  />
+                </div>
+                <div id="f2">
+                  <h3>Adarsh Manjunath Naik</h3>
+                  <h3>Aryan Singh </h3>
+                  <h3>Krishna Agrawal</h3>
+                </div>
+                <div id="f3">
+                  <h3><a href="https://www.linkedin.com/in/adarsh-manjunath-naik-a2004m/">Linkedin</a></h3>
+                  <h3><a href="https://github.com/adarsh-naik-2004">GitHub</a></h3>
+                  <h3><a href="https://www.codechef.com/users/adarsh_naik">CodeChef</a></h3>
+                </div>
+                <div id="f4">
+                  <h4>
+                    Bhabha House <br />
+                    IIIT NAYA RAIPUR <br />
+                    RAIPUR <br />
+                    493661 <br />
+                    MOB.: 7477007852 <br />
+                  </h4>
+                </div>
+              </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" integrity="sha512-16esztaSRplJROstbIIdwX3N97V1+pZvV33ABoG1H2OyTttBxEGkTsoIVsiP1iaTtM8b3+hu2kB6pQ4Clr5yug==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" integrity="sha512-Ic9xkERjyZ1xgJ5svx3y0u3xrvfT/uPkV99LBwe68xjy/mGtO+4eURHZBW2xW4SZbFrF1Tf090XqB+EVgXnVjw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="{{url_for('static',filename='scripthome.js')}}"></script>  
+</body>
+</html>

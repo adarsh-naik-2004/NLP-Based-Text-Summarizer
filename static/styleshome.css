@@ -1,0 +1,296 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'montserrat';
+    color: #fff;
+}
+
+html,body{
+    width:100%;
+    height:100%;
+}
+#nav{
+    height: 90px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding:0 100px;
+    justify-content: flex-start;
+    gap:45px;
+    position: fixed;
+    z-index: 99;
+    background-color: #4e3f3f;
+}
+#nav img{
+    height: 80px;
+    border-radius: 20%;
+}
+#nav h4{
+    font-weight:500 ;
+} 
+video{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    position: fixed;
+    z-index: -1;
+}
+#main{
+    position: relative;
+    background-color: rgba(108, 105, 105, 0);
+}
+
+#page1{
+    height: 100vh;
+    width: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+}
+#page1 h1{
+    font-size: 120px;
+    font-weight: 900;
+    position: relative;
+}
+#page1 h1::before{
+    content:"NLP Based Text Summarization";
+    position:absolute;
+    color: #000;
+    top:-3px;
+    left:-3px;
+    -webkit-text-stroke:2px rgba(255, 251, 0, 0.873) ;
+    z-index: -1;
+
+}
+#page1 h2{
+    font-size: 35px;
+    font-weight: 800;
+    margin-top: 10px;
+    margin-bottom: 30px;
+}
+#page1 p{
+    font-size: 20px;
+    font-weight: 200;
+    width: 70%;
+}
+#page2{
+    min-height: 100vh;
+    width: 100%;
+}
+#scroller{
+   position: relative;
+    white-space: nowrap;
+    overflow-x: auto ;
+    overflow-y:hidden;
+    z-index: 10;
+}
+#scroller::-webkit-scrollbar{
+    display:none;
+}
+#scroller-1{
+    display: inline-block;
+    white-space: nowrap;
+    animation-name:scroll;
+    animation-timing-function: linear;
+    animation-duration: 20s;
+    animation-iteration-count: infinite;
+}
+
+#scroller h4{
+    display:inline-block;
+    font-size:100px;
+    font-weight: 700;
+    margin-right: 10px;
+    font-family: Gilroy;
+    color:transparent;
+    -webkit-text-stroke: 2px rgb(234, 255, 0);
+    transition: all linear 0.4s;
+}
+#scroller h4:hover{
+    color:rgb(234, 255, 0);
+}
+@keyframes scroll {
+    from{
+        transform:translateX(0);
+    }
+    to{
+        transform:translateX(-100%);
+    }
+}
+#pricing{
+    height: 50vh;
+    width: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 0 50px;
+    margin-top: 40px;
+}
+#pricing img{
+    height: 350px;
+    width: 620px;
+    border-radius: 10px;
+    object-fit: cover;
+    margin-top: 40px;
+}
+#dd{
+    width: 50%;
+    text-align: center;
+    margin-top: 40px;
+}
+#dd h3{
+    font-size: 50px;
+    font-weight: 500;
+    margin-bottom: 30px;
+    font-size: 'Poppins';
+}
+#dd p{
+    font-size: 20px;
+    line-height: 25px;
+    font-size: 'Poppins Light';
+}
+#pricepanel{
+    height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap:90px;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    z-index: 10;
+}
+.card{
+    height: 80%;
+    width: 40%;
+    border-radius: 15px;
+    overflow: hidden;
+    transition: all ease 0.9s;
+    margin-top: 170px;
+     
+}
+.card img {
+    width: 100%; /* Ensure the image fills the card horizontally */
+    height: auto; /* Maintain the aspect ratio */
+}
+#card1{
+    background-image: url(https://camo.githubusercontent.com/75aa096b3262197ca28f699c27ac150c0d9bce1f4c72d742c3eb064a95b2affc/68747470733a2f2f64726976652e676f6f676c652e636f6d2f75633f69643d31636147455a6d54344f44663052377a4e5a4c7159682d38706c70763535734968);
+}
+#card3{
+    background-image: url(card5.png);
+    background-position: top;
+}
+.overwrite{
+    height: 100%;
+    width: 100%;
+    background-color: #95C11E;
+    padding-top: 50px;
+    padding:30px;
+    opacity: 0;
+    transition: all ease 0.9s;
+}
+.overwrite h4{
+    color: black;
+    font-size: 40px;
+    font-family: 800;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+}
+.overwrite p{
+    color:black;
+    font-size: 18px;
+    line-height: 18px;
+     
+}
+.card:hover .overwrite{
+     opacity: 1;
+}
+.card:hover{
+    transform:  rotate3d(-0.5,1,0,15deg);
+}
+#page3{
+    height: 100vh;
+    width: 100%;
+    background-color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+#page3 p{
+    font-size: 30px;
+    font-weight: 900;
+    width: 65%;
+    line-height: 40px;
+    text-align: center;
+}
+#page3 img{
+    position: absolute;
+    height: 50px;
+}
+#page3 #upper{
+    left: 10%;
+    top: 30%;
+
+
+}
+#page3 #down{
+    bottom: 30%;
+    right: 10%;;
+}
+#footer {
+    height: 40vh;
+    width: 100%;
+    background: #b21e1e;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 6.5vw;
+    padding: 0 100px;
+  }
+
+  #f1 img {
+    height: 200px;
+    border-radius: 30%;
+  }
+  #f1,#f2,#f3,#f4 {
+    width: fit-content;
+    position: relative;
+    z-index: 99;
+    /* background-color: red; */
+  }
+  #f2 h3 {
+    font-size: 1.6vw;
+    white-space: nowrap;
+    text-transform: uppercase;
+    color: #000;
+    font-weight: 900;
+    margin-bottom: 8px;
+  }
+  
+  #f3 h3 {
+    font-size: 1.6vw;
+    white-space: nowrap;
+    text-transform: uppercase;
+    color: #000;
+    font-weight: 800;
+    margin-bottom: 8px;
+  }
+  #f4 h4 {
+    font-size: 1vw;
+    white-space: nowrap;
+    text-transform: uppercase;
+    color: #000;
+    font-weight: 800;
+    line-height: 30px;
+    margin-bottom: 8px;
+  }
+
+
+  
