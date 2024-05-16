@@ -18,6 +18,8 @@ import numpy as np
 import subprocess
 subprocess.run(["python", "-m", "spacy", "download", "en"])
 nlp = spacy.load('en_core_web_sm')
+
+
 def summarize(long_rev):
     summ = spacy.load('en_core_web_sm')
     long_rev = summ(long_rev)
@@ -70,146 +72,157 @@ def summarize(long_rev):
     final_sentences = [w.text for w in summarized_sentences]
     summary = ' '.join(final_sentences)
     return summary
-# def getSentences(text):
-#     nlp = English()
-#     nlp.add_pipe('sentencizer')
-#     document = nlp(text)
-#     return [sent.text.strip() for sent in document.sents]
 
 
-# def printToken(token):
-#     print(token.text, "->", token.dep_)
 
 
-# def appendChunk(original, chunk):
-#     return original + ' ' + chunk
 
 
-# def isRelationCandidate(token):
-#     deps = ["ROOT", "adj", "attr", "agent", "amod"]
-#     return any(subs in token.dep_ for subs in deps)
 
 
-# def isConstructionCandidate(token):
-#     deps = ["compound", "prep", "conj", "mod"]
-#     return any(subs in token.dep_ for subs in deps)
 
 
-# def processSubjectObjectPairs(tokens):
-#     subject = ''
-#     object = ''
-#     relation = ''
-#     subjectConstruction = ''
-#     objectConstruction = ''
-#     for token in tokens:
-#         #printToken(token)
-#         if "punct" in token.dep_:
-#             continue
-#         if isRelationCandidate(token):
-#             relation = appendChunk(relation, token.lemma_)
-#         if isConstructionCandidate(token):
-#             if subjectConstruction:
-#                 subjectConstruction = appendChunk(
-#                     subjectConstruction, token.text)
-#             if objectConstruction:
-#                 objectConstruction = appendChunk(
-#                     objectConstruction, token.text)
-#         if "subj" in token.dep_:
-#             subject = appendChunk(subject, token.text)
-#             subject = appendChunk(subjectConstruction, subject)
-#             subjectConstruction = ''
-#         if "obj" in token.dep_:
-#             object = appendChunk(object, token.text)
-#             object = appendChunk(objectConstruction, object)
-#             objectConstruction = ''
 
-#     #print(subject.strip(), ",", relation.strip(), ",", object.strip())
-#     return (subject.strip(), relation.strip(), object.strip())
+def getSentences(text):
+    nlp = English()
+    nlp.add_pipe('sentencizer')
+    document = nlp(text)
+    return [sent.text.strip() for sent in document.sents]
 
 
-# def processSentence(sentence):
-#     tokens = nlp(sentence)
-#     return processSubjectObjectPairs(tokens)
+def printToken(token):
+    print(token.text, "->", token.dep_)
 
 
-# def printGraph(triples):
-#     G = nx.Graph()
-#     for triple in triples:
-#         G.add_node(triple[0])
-#         G.add_node(triple[1])
-#         G.add_node(triple[2])
-#         G.add_edge(triple[0], triple[1])
-#         G.add_edge(triple[1], triple[2])
-
-#     pos = nx.spring_layout(G)
-#     plt.figure()
-#     nx.draw(G, pos, edge_color='black', width=1, linewidths=1,
-#             node_size=500, node_color='seagreen', alpha=0.9,
-#             labels={node: node for node in G.nodes()})
-#     plt.axis('off')
-#     plt.show()
+def appendChunk(original, chunk):
+    return original + ' ' + chunk
 
 
-# def knowledge_graph(text):
-#   sentences = getSentences(text)
-#   nlp_model = spacy.load('en_core_web_sm')
-#   triples = []
-#   print(text)
-#   for sentence in sentences:
-#       triples.append(processSentence(sentence))
+def isRelationCandidate(token):
+    deps = ["ROOT", "adj", "attr", "agent", "amod"]
+    return any(subs in token.dep_ for subs in deps)
 
-#   printGraph(triples)
+
+def isConstructionCandidate(token):
+    deps = ["compound", "prep", "conj", "mod"]
+    return any(subs in token.dep_ for subs in deps)
+
+
+def processSubjectObjectPairs(tokens):
+    subject = ''
+    object = ''
+    relation = ''
+    subjectConstruction = ''
+    objectConstruction = ''
+    for token in tokens:
+        #printToken(token)
+        if "punct" in token.dep_:
+            continue
+        if isRelationCandidate(token):
+            relation = appendChunk(relation, token.lemma_)
+        if isConstructionCandidate(token):
+            if subjectConstruction:
+                subjectConstruction = appendChunk(
+                    subjectConstruction, token.text)
+            if objectConstruction:
+                objectConstruction = appendChunk(
+                    objectConstruction, token.text)
+        if "subj" in token.dep_:
+            subject = appendChunk(subject, token.text)
+            subject = appendChunk(subjectConstruction, subject)
+            subjectConstruction = ''
+        if "obj" in token.dep_:
+            object = appendChunk(object, token.text)
+            object = appendChunk(objectConstruction, object)
+            objectConstruction = ''
+
+    #print(subject.strip(), ",", relation.strip(), ",", object.strip())
+    return (subject.strip(), relation.strip(), object.strip())
+
+
+def processSentence(sentence):
+    tokens = nlp(sentence)
+    return processSubjectObjectPairs(tokens)
+
+
+def printGraph(triples):
+    G = nx.Graph()
+    for triple in triples:
+        G.add_node(triple[0])
+        G.add_node(triple[1])
+        G.add_node(triple[2])
+        G.add_edge(triple[0], triple[1])
+        G.add_edge(triple[1], triple[2])
+
+    pos = nx.spring_layout(G)
+    plt.figure()
+    nx.draw(G, pos, edge_color='black', width=1, linewidths=1,
+            node_size=500, node_color='seagreen', alpha=0.9,
+            labels={node: node for node in G.nodes()})
+    plt.axis('off')
+    plt.show()
+
+
+def knowledge_graph(text):
+  sentences = getSentences(text)
+  nlp_model = spacy.load('en_core_web_sm')
+  triples = []
+  print(text)
+  for sentence in sentences:
+      triples.append(processSentence(sentence))
+
+  printGraph(triples)
 
 
 # text = "The Honda City is a well balanced car with an amazing engine to drive. It runs very smoothly and rarely breaks down"
 
 # knowledge_graph(text)
-# def IE_Operations(review):
-#     # create spacy doc
-#     doc = nlp(review)
-#     adjectives = set()
-#     verbs_all = set()
-#     # applying POS to each token
-#     print("POS Tagging : ")
-#     for token in doc:
-#         if token.pos_ not in ["SPACE", "DET", "ADP", "PUNCT", "AUX", "SCONJ", "CCONJ", "PART"]:
-#             print(token.text, '->', token.pos_)
-#         if(token.pos_ == "ADJ"):
-#             adjectives.add(token.text)
-#         if(token.pos_ == "VERB"):
-#             verbs_all.add(token.text)
+def IE_Operations(review):
+    # create spacy doc
+    doc = nlp(review)
+    adjectives = set()
+    verbs_all = set()
+    # applying POS to each token
+    print("POS Tagging : ")
+    for token in doc:
+        if token.pos_ not in ["SPACE", "DET", "ADP", "PUNCT", "AUX", "SCONJ", "CCONJ", "PART"]:
+            print(token.text, '->', token.pos_)
+        if(token.pos_ == "ADJ"):
+            adjectives.add(token.text)
+        if(token.pos_ == "VERB"):
+            verbs_all.add(token.text)
 
-#     print("Dependency Graph : \n")
+    print("Dependency Graph : \n")
 
-#     print("************************************************************\n")
-#     displacy.render(doc, style='dep', jupyter=True)
-#     print("************************************************************\n")
+    print("************************************************************\n")
+    displacy.render(doc, style='dep', jupyter=True)
+    print("************************************************************\n")
 
-#     print("Verb with subject : \n")
+    print("Verb with subject : \n")
 
-#     # Finding a verb with a subject
-#     verbs = set()
-#     for possible_subject in doc:
-#         if possible_subject.dep == nsubj and possible_subject.head.pos == VERB:
-#             verbs.add(possible_subject.head)
-#     print(verbs)
-#     print("************************************************************\n")
+    # Finding a verb with a subject
+    verbs = set()
+    for possible_subject in doc:
+        if possible_subject.dep == nsubj and possible_subject.head.pos == VERB:
+            verbs.add(possible_subject.head)
+    print(verbs)
+    print("************************************************************\n")
 
-#     print("Adjectives : \n")
+    print("Adjectives : \n")
 
-#     # Finding adjectives with a subject
-#     print(adjectives)
-#     print("************************************************************\n")
-#     # NER
-#     for ent in doc.ents:
-#         print(ent.text, ent.start_char, ent.end_char, ent.label_)
-#     print("************************************************************\n")
+    # Finding adjectives with a subject
+    print(adjectives)
+    print("************************************************************\n")
+    # NER
+    for ent in doc.ents:
+        print(ent.text, ent.start_char, ent.end_char, ent.label_)
+    print("************************************************************\n")
 
-#     print("Knowledge Graph : \n")
+    print("Knowledge Graph : \n")
 
-#     knowledge_graph(review)
+    knowledge_graph(review)
 
-#     print("************************************************************\n")
+    print("************************************************************\n")
 # # function to preprocess speech
 
 # def clean(text):

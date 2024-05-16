@@ -9,9 +9,9 @@
     <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="{{url_for('static',filename='index2.css')}}">
 </head> 
-
-<body style="background-color:black">
-    <header style="background-color: #b21e1e;"
+x`x`    
+<body style="background-color:rgba(80, 84, 86)">
+    <header style="background-color: rgba(80, 84, 86);"
         class="fixed inset-0 w-full flex flex-col justify-center justify-items-center content-center h-20 rounded-b-lg">
         <img src="https://bs-uploads.toptal.io/blackfish-uploads/components/blog_post_page/content/cover_image_file/cover_image/1312209/regular_1708x683_cover-0323-MachineLearning_Dan_Newsletter-b21703f41d807514083e297955e1b46d.png" alt="Logo"
         class="object-contain w-16 self-center md:self-left md:w-30">
@@ -21,38 +21,69 @@
     <section class="flex flex-wrap mt-20 w-full">
         <div class="w-full md:w-1/2">
             <form class="w-full flex flex-col md:h-screen" action="/index2.html" method="post" enctype="multipart/form-data">
-                <input style="background-color: rgba(84, 84, 81, 0.873);"    type="file" id="fileInput" name="fileInput" class="m-2 p-2 border-black rounded-lg border self-center justify-center" accept=".txt">
+                <input style="background-color: rgba(101, 101, 73, 0.873);"    type="file" id="fileInput" name="fileInput" class="m-2 p-2 border-black rounded-lg border self-center justify-center" accept=".csv">
                 <div class="flex self-center">
                     <button class="m-1 bg-green-500 hover:bg-blue-700 text-white font-semi-bold py-2 px-4 rounded-lg"
                         type="submit">Analyze</button>
                 </div>
             </form>
         </div>
-        <div class="w-full md:w-1/2">
-            <div class="mt-2 flex flex-col w-full md:h-screen">
-                <textarea style="background-color:#95C11E;"
+            <div class="w-full">
+                <h2>Summary:</h2>
+                <ol style="background-color:rgba(80, 84, 86)"
                     class="w-11/12 border-green-600 rounded-lg p-2 border self-center justify-center md:h-3/4" rows="10"
-                    cols="30" name="overallSummary" readonly placeholder="Overall Summary" id="overallSummary">Overall Summary</textarea>
-                <textarea style="background-color: #95C11E;"
-                    class="w-11/12 border-green-600 rounded-lg p-2 border self-center justify-center md:h-3/4 mt-4" rows="10"
-                    cols="30" name="topPositiveComments" readonly placeholder="Top Positive Comments" id="topPositiveComments">Top Positive Comments</textarea>
-                <textarea style="background-color: #95C11E;"
-                    class="w-11/12 border-green-600 rounded-lg p-2 border self-center justify-center md:h-3/4 mt-4" rows="10"
-                    cols="30" name="topNegativeComments" readonly placeholder="Top Negative Comments" id="topNegativeComments">Top Negative Comments</textarea>
-                <textarea style="background-color: #95C11E;"
-                    class="w-11/12 border-green-600 rounded-lg p-2 border self-center justify-center md:h-3/4 mt-4" rows="10"
-                    cols="30" name="posTagging" readonly placeholder="POS Tagging" id="posTagging">POS Tagging</textarea>
-                <textarea style="background-color: #95C11E;"
-                    class="w-11/12 border-green-600 rounded-lg p-2 border self-center justify-center md:h-3/4 mt-4" rows="10"
-                    cols="30" name="knowledgeGraph" readonly placeholder="Knowledge Graph" id="knowledgeGraph">Knowledge Graph</textarea>
-                <textarea style="background-color: #95C11E;"
-                    class="w-11/12 border-green-600 rounded-lg p-2 border self-center justify-center md:h-3/4 mt-4" rows="10"
-                    cols="30" name="dependencyGraph" readonly placeholder="Dependency Graph" id="dependencyGraph">Dependency Graph</textarea>
-                <textarea style="background-color: #95C11E;"
-                    class="w-11/12 border-green-600 rounded-lg p-2 border self-center justify-center md:h-3/4 mt-4" rows="10"
-                    cols="30" name="wordFrequencyCounter" readonly placeholder="Word Frequency Counter" id="wordFrequencyCounter">Word Frequency Counter</textarea>
+                    cols="30" name="summary" readonly placeholder="summary" id="summary">
+                    {{summary}}
+                </ol>
             </div>
-        </div>
+
+            <div class="w-full">
+                <h2>Top Positive Reviews:</h2>
+                <ol style="background-color: rgba(80, 84, 86)"
+                    class="w-11/12 border-green-600 rounded-lg p-2 border self-center justify-center md:h-3/4 mt-4" rows="10"
+                    cols="30" name="top_positive_sentences" readonly placeholder="top_positive_sentences" id="top_positive_sentences">
+                   {{top_positive_sentences}}
+                </ol>
+            </div>
+            <div class="w-full">
+                <h2>Top Negative Reviews:</h2>
+                <ol style="background-color: rgba(80, 84, 86)"
+                    class="w-11/12 border-green-600 rounded-lg p-2 border self-center justify-center md:h-3/4 mt-4" rows="10"
+                    cols="30" name="top_negative_sentences" readonly placeholder="top_negative_sentences" id="top_negative_sentences">
+                   {{top_negative_sentences}}
+                </ol>
+            </div>
+            <div class="w-full">
+                <h2>Word Frequency:</h2>
+                <textarea style="background-color: rgba(80, 84, 86)"
+                    class="w-11/12 border-green-600 rounded-lg p-2 border self-center justify-center md:h-3/4 mt-4" rows="10"
+                    cols="30" name="wordFrequencyCounter" readonly placeholder="Word Frequency Counter" id="wordFrequencyCounter">
+                   {{word_freq}}
+                </textarea>
+            </div>
+            <div class="w-full">
+                <h2>POS Tagging (Adjectives):</h2>
+                <ol style="background-color: rgba(80, 84, 86)"
+                    class="w-11/12 border-green-600 rounded-lg p-2 border self-center justify-center md:h-3/4 mt-4" rows="10"
+                    cols="30" name="adjective" readonly placeholder="adjective" id="adjective">
+                   <li>{{adjectives}}</li>
+                </ol>
+            </div>
+            <div class="w-full">
+                <h2>POS Tagging (Verb):</h2>
+                <ol style="background-color: rgba(80, 84, 86)v"
+                    class="w-11/12 border-green-600 rounded-lg p-2 border self-center justify-center md:h-3/4 mt-4" rows="10"
+                    cols="30" name="verb" readonly placeholder="verb" id="verb">
+                   <li>{{verbs_all}}</li>
+                </ol>
+            </div>
+            <div class="w-full">
+                <h2>Dependency Graph:</h2>
+                <div class="dependency-graph" style="max-height: 400px; overflow-y: auto;">
+                    <!-- Display the dependency graph -->
+                    {{ dependency_graph_data | safe }}
+                </div>
+            </div>
         <div id="footer">
             <div id="footer">
 

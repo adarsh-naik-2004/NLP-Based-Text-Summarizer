@@ -11,8 +11,8 @@
     <link rel="stylesheet" href="{{url_for('static',filename='index1.css')}}">
 </head> 
 
-<body style="background-color:black;">
-    <header style="background-color: #b21e1e;"
+<body style="background-color:rgb(80, 84, 86);">
+    <header style="background-color: rgba(80, 84, 86) ;"
         class="fixed inset-0 w-full flex flex-col justify-center justify-items-center content-center h-20 rounded-b-lg">
         <img src="https://bs-uploads.toptal.io/blackfish-uploads/components/blog_post_page/content/cover_image_file/cover_image/1312209/regular_1708x683_cover-0323-MachineLearning_Dan_Newsletter-b21703f41d807514083e297955e1b46d.png" alt="Logo"
             class="object-contain w-16 self-center md:self-left md:w-30">
@@ -22,7 +22,7 @@
     <section class="flex flex-wrap mt-20 w-full">
         <div class="w-full md:w-1/2">
             <form class="w-full flex flex-col md:h-screen" action="/index1.html" method="post">
-                <textarea style="background-color: rgba(84, 84, 81, 0.873);"class="w-11/12 md:h-3/4 m-2 p-2 border-black rounded-lg border self-center justify-center"
+                <textarea style="background-color: rgba(233, 233, 220, 0.873);"class="w-11/12 md:h-3/4 m-2 p-2 border-black rounded-lg border self-center justify-center"
                     name="data" id="data" cols="30" rows="10" placeholder="Enter your Data"
                     required="required"></textarea>
                 <div class="flex self-center">
@@ -35,7 +35,7 @@
         </div>
         <div class="w-full md:w-1/2">
             <div class="mt-2 flex flex-col w-full md:h-screen">
-                <textarea style="background-color: #95C11E;"
+                <textarea style="background-color: rgba(233, 233, 220, 0.873) ;"
                     class="w-11/12 border-green-600 rounded-lg p-2 border self-center justify-center md:h-3/4" rows="10"
                     cols="30" name="result" readonly placeholder="Your Summary" id="myInput">{{result}}</textarea>
                 <button

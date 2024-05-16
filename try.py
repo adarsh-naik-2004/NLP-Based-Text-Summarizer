@@ -147,7 +147,7 @@ def index():
             return "No selected file"
 
         if file:
-            df = pd.read_csv(file)
+            df = pd.read_csv(file,delimiter=',',nrows=100)
             if 'Review' not in df.columns:
                 return "Error: 'Review' column not found in the CSV file"
 

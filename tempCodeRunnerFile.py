@@ -1,1 +1,1 @@
-from flask import Flask, render_template, request
+html_markup = displacy.render(doc, style='dep', page=True)
