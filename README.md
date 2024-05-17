@@ -43,9 +43,6 @@ pip install library_name
 ![web2](https://github.com/adarsh-naik-2004/NLP-Based-Text-Summarizer/assets/130145440/4d70140c-1f0c-4677-a14b-36c4c4a24cf4)
 
 
-![ok](https://github.com/adarsh-naik-2004/NLP-Based-Text-Summarizer/assets/130145440/d3ea3136-8fa3-4bc0-a07a-8eb6355bd54e)
-
-
 ![Data-Analysis-Tool](https://github.com/adarsh-naik-2004/NLP-Based-Text-Summarizer/assets/130145440/21e5140f-2ffe-4b7b-959a-cc7bee95380a)
 
 
