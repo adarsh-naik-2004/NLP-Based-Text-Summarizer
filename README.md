@@ -43,6 +43,9 @@ pip install library_name
 ![web4](https://github.com/adarsh-naik-2004/NLP-Based-Text-Summarizer/assets/130145440/9a73d79c-13cf-4eb6-bb80-de13e1bda7a3)
 
 
+![image](https://github.com/adarsh-naik-2004/NLP-Based-Text-Summarizer/assets/130145440/a7df0f82-4e99-4a9b-99b5-82a0e1f6e788)
+
+
 ## License
 
 [MIT](https://github.com/adarsh-naik-2004/NLP-Based-Text-Summarizer/blob/main/LICENSE)
